@@ -222,6 +222,7 @@ h2 {
     margin-top: 45px;
     height: 930px;
     flex-wrap: wrap;
+    position: relative;
 }
 .slider_slide {
     width: 270px;
@@ -319,18 +320,34 @@ h2 {
     background-color: #f1cdb3;
 }
 .slider_next {
-    animation-duration: 0.5s;
+    animation-duration: 0.3s;
     animation-name: slidein;
   }
   
   @keyframes slidein {
     from {
-      margin-left: 100%;
-      width: 300%;
+      margin-left: 200%;
+      width: 100%;
     }
   
     to {
       margin-left: 0%;
+      width: 100%;
+    }
+  }
+.slider_prev {
+    animation-duration: 0.3s;
+    animation-name: slidein-left;
+  }
+  
+  @keyframes slidein-left {
+    from {
+      right: 200%;
+      width: 100%;
+    }
+  
+    to {
+      right: 0%;
       width: 100%;
     }
   }
@@ -340,8 +357,8 @@ h2 {
     flex-direction: column;
     z-index: 50;
     position: fixed;
-    height: 552px;
-    width: 952px;
+    height: 500px;
+    width: 900px;
     left: 52%;
     top: 39%;
     transform: translate(-50%, -50%);

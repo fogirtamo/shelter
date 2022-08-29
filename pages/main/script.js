@@ -59,7 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log(arrSlidePets)
   arrSlideCurrent = arrSlidePets;    // сохранение обьектов текущих слайдов для попапа при загрузке стр.
   console.log(arrSlideCurrent)
-	slideOne.innerHTML = `<img src="${arrSlidePets[0].img}">
+  // 
+	slideOne.innerHTML = `<img src="${arrSlidePets[0].img}">               
   <div class="slider_slide_name">${arrSlidePets[0].name}</div>
   <div class="slider_slide_learn">Learn more</div>`;
 	slideTwo.innerHTML = `<img src="${arrSlidePets[1].img}">

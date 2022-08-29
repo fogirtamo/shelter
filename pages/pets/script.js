@@ -250,7 +250,12 @@ document.addEventListener('DOMContentLoaded', () => {
 arrowToNextPage.addEventListener('click', () => {
   pageCounter++;
 
-  slider.classList.add('slider_next');                    // НЕ РАБОТАЕТ!!!! только первая страница
+  function toggleF() {
+    slider.classList.toggle('slider_next')
+  };
+
+  let timerID = setTimeout(toggleF, 0);
+  let timerIDSec = setTimeout(toggleF, 350);
 
   if (pageCounter > 1) {
     arrowToPreviousPage.classList.add('bott__arrows__enable');
@@ -260,7 +265,13 @@ arrowToNextPage.addEventListener('click', () => {
   };
 
   if (middleWindow == false && littleWindow == false) {
+    if (pageCounter == 7) {
+      clearTimeout(timerID);
+      clearTimeout(timerIDSec);
+    };
+
     if (pageCounter > 6) pageCounter = 6;
+
     if (pageCounter == 6) {
       arrowToNextPage.classList.remove('bott__arrows__enable');
       arrowToLastPage.classList.remove('bott__arrows__enable');
@@ -295,6 +306,10 @@ arrowToNextPage.addEventListener('click', () => {
   };
 
   if (middleWindow == true) {
+    if (pageCounter == 9) {
+      clearTimeout(timerID);
+      clearTimeout(timerIDSec);
+    };
     if (pageCounter > 8) pageCounter = 8;
     if (pageCounter == 8) {
       arrowToNextPage.classList.remove('bott__arrows__enable');
@@ -324,6 +339,10 @@ arrowToNextPage.addEventListener('click', () => {
   };
 
   if (littleWindow == true) {
+    if (pageCounter == 17) {
+      clearTimeout(timerID);
+      clearTimeout(timerIDSec);
+    };
     if (pageCounter > 16) pageCounter = 16;
     if (pageCounter == 16) {
       arrowToNextPage.classList.remove('bott__arrows__enable');
@@ -347,22 +366,37 @@ arrowToNextPage.addEventListener('click', () => {
 });
 
 arrowToLastPage.addEventListener('click', () => {
+  function toggleF() {
+    slider.classList.toggle('slider_next')
+  };
+
+  let timerID = setTimeout(toggleF, 0);
+  let timerIDSec = setTimeout(toggleF, 350);
   
   if (middleWindow == false && littleWindow == false) {
+    if (pageCounter == 6) {
+      clearTimeout(timerID);
+      clearTimeout(timerIDSec);
+    };
+
     pageCounter = 6;
+
     if (pageCounter > 6) pageCounter = 6;
+
     if (pageCounter == 6) {
       arrowToNextPage.classList.remove('bott__arrows__enable');
       arrowToLastPage.classList.remove('bott__arrows__enable');
       arrowToNextPage.classList.add('bott__arrows__disable');
       arrowToLastPage.classList.add('bott__arrows__disable');
     };
+
     if (pageCounter > 1) {
       arrowToPreviousPage.classList.add('bott__arrows__enable');
       arrowToFirstPage.classList.add('bott__arrows__enable');
       arrowToPreviousPage.classList.remove('bott__arrows__disable');
       arrowToFirstPage.classList.remove('bott__arrows__disable');
     };
+
     slideOne.innerHTML = `<img src="${slidePages[pageCounter - 1][0].img}">
     <div class="slider_slide_name">${slidePages[pageCounter - 1][0].name}</div>
     <div class="slider_slide_learn">Learn more</div>`;
@@ -390,14 +424,22 @@ arrowToLastPage.addEventListener('click', () => {
   };
 
   if (middleWindow == true) {
+    if (pageCounter == 8) {
+      clearTimeout(timerID);
+      clearTimeout(timerIDSec);
+    };
+
     pageCounter = 8;
+
     if (pageCounter > 8) pageCounter = 8;
+
     if (pageCounter == 8) {
       arrowToNextPage.classList.remove('bott__arrows__enable');
       arrowToLastPage.classList.remove('bott__arrows__enable');
       arrowToNextPage.classList.add('bott__arrows__disable');
       arrowToLastPage.classList.add('bott__arrows__disable');
     };
+
     if (pageCounter > 1) {
       arrowToPreviousPage.classList.add('bott__arrows__enable');
       arrowToFirstPage.classList.add('bott__arrows__enable');
@@ -426,14 +468,22 @@ arrowToLastPage.addEventListener('click', () => {
   };
 
   if (littleWindow == true) {
+    if (pageCounter == 16) {
+      clearTimeout(timerID);
+      clearTimeout(timerIDSec);
+    };
+
     pageCounter = 16;
+
     if (pageCounter > 16) pageCounter = 16;
+
     if (pageCounter == 16) {
       arrowToNextPage.classList.remove('bott__arrows__enable');
       arrowToLastPage.classList.remove('bott__arrows__enable');
       arrowToNextPage.classList.add('bott__arrows__disable');
       arrowToLastPage.classList.add('bott__arrows__disable');
     };
+    
     if (pageCounter > 1) {
       arrowToPreviousPage.classList.add('bott__arrows__enable');
       arrowToFirstPage.classList.add('bott__arrows__enable');
@@ -456,7 +506,21 @@ arrowToLastPage.addEventListener('click', () => {
 });
 
 arrowToPreviousPage.addEventListener('click', () => {
+  function toggleF() {
+    slider.classList.toggle('slider_prev')
+  };
+
+  let timerID = setTimeout(toggleF, 0);
+  let timerIDSec = setTimeout(toggleF, 350);
+
+  if (pageCounter == 1) {
+    clearTimeout(timerID);
+    clearTimeout(timerIDSec);
+  };
+
   pageCounter--;
+  
+  if (pageCounter < 1) pageCounter = 1;
 
   numberPage.innerHTML = `${pageCounter}`;
 
@@ -467,7 +531,6 @@ arrowToPreviousPage.addEventListener('click', () => {
       arrowToNextPage.classList.add('bott__arrows__enable');
       arrowToLastPage.classList.add('bott__arrows__enable');
     };
-    if (pageCounter < 1) pageCounter = 1;
     if (pageCounter == 1) {
       arrowToPreviousPage.classList.add('bott__arrows__disable');
       arrowToFirstPage.classList.add('bott__arrows__disable');
@@ -508,7 +571,6 @@ arrowToPreviousPage.addEventListener('click', () => {
       arrowToNextPage.classList.add('bott__arrows__enable');
       arrowToLastPage.classList.add('bott__arrows__enable');
     };
-    if (pageCounter < 1) pageCounter = 1;
     if (pageCounter == 1) {
       arrowToPreviousPage.classList.add('bott__arrows__disable');
       arrowToFirstPage.classList.add('bott__arrows__disable');
@@ -543,7 +605,6 @@ arrowToPreviousPage.addEventListener('click', () => {
       arrowToNextPage.classList.add('bott__arrows__enable');
       arrowToLastPage.classList.add('bott__arrows__enable');
     };
-    if (pageCounter < 1) pageCounter = 1;
     if (pageCounter == 1) {
       arrowToPreviousPage.classList.add('bott__arrows__disable');
       arrowToFirstPage.classList.add('bott__arrows__disable');
@@ -564,6 +625,17 @@ arrowToPreviousPage.addEventListener('click', () => {
 });
 
 arrowToFirstPage.addEventListener('click', () => {
+  function toggleF() {
+    slider.classList.toggle('slider_prev')
+  };
+
+  let timerID = setTimeout(toggleF, 0);
+  let timerIDSec = setTimeout(toggleF, 350);
+
+  if (pageCounter == 1) {
+    clearTimeout(timerID);
+    clearTimeout(timerIDSec);
+  };
   pageCounter = 1;
 
   if (pageCounter < 1) pageCounter = 1;
