@@ -1,6 +1,8 @@
 
 // MAIN PAGE
 
+let sizeWindow = window.matchMedia("(min-width: 320px) and (max-width: 767px)").matches;
+
 // Burger menu 
 const menuIcon = document.querySelector('.burger-menu__button');
 const navbar = document.querySelector('.nav-menu');
@@ -23,15 +25,23 @@ overlay.addEventListener('click', () => {
 });
 helper.addEventListener('click', () => {
 	menuIcon.classList.toggle('burger-menu__button__active');
-	navbar.classList.toggle('nav-menu__active');
-	overlay.classList.toggle('overlay_active');
-	body.classList.toggle('hidden');
+  sizeWindow = window.matchMedia("(min-width: 320px) and (max-width: 767px)").matches;
+  if(sizeWindow == true) {
+    console.log(sizeWindow)
+    navbar.classList.toggle('nav-menu__active');
+    overlay.classList.toggle('overlay_active');
+    body.classList.toggle('hidden');
+  }
 });
 contacts.addEventListener('click', () => {
 	menuIcon.classList.toggle('burger-menu__button__active');
-	navbar.classList.toggle('nav-menu__active');
-	overlay.classList.toggle('overlay_active');
-	body.classList.toggle('hidden');
+  sizeWindow = window.matchMedia("(min-width: 320px) and (max-width: 767px)").matches;
+  if(sizeWindow == true) {
+    console.log(sizeWindow)
+    navbar.classList.toggle('nav-menu__active');
+    overlay.classList.toggle('overlay_active');
+    body.classList.toggle('hidden');
+  }
 });
 
 // SLider
