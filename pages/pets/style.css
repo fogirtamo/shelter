@@ -203,6 +203,7 @@ h2 {
 .pets {
     background-color: #F6F6F6;
     margin-top: 120px;
+    height: 1342px;
 }
 .pets_sub {
     display: flex;
@@ -326,12 +327,13 @@ h2 {
   
   @keyframes slidein {
     from {
-      margin-left: 200%;
+      left: 200%;
       width: 100%;
+      position: relative;
     }
   
     to {
-      margin-left: 0%;
+      left: 0%;
       width: 100%;
     }
   }
